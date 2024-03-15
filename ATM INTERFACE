@@ -1,0 +1,75 @@
+class User:
+    def _init_(self, user_id, pin):
+        self.user_id = user_id
+        self.pin = pin
+    
+    def authenticate_user(self):
+        # Authenticates the user based on user ID and pin
+        pass
+
+
+class ATM:
+    def _init_(self, user, balance):
+        self.user = user
+        self.balance = balance
+    
+    def display_menu(self):
+        # Displays the menu options to the user
+        pass
+    
+    def perform_transaction(self):
+        # Performs the selected transaction based on user input
+        pass
+
+
+class TransactionHistory:
+    def _init_(self):
+        self.history_list = []
+    
+    def add_transaction(self, transaction):
+        # Adds a transaction to the history list
+        pass
+    
+    def get_transaction_history(self):
+        # Retrieves the transaction history
+        pass
+
+
+class Withdraw:
+    def _init_(self, amount):
+        self.amount = amount
+    
+    def validate_withdrawal(self):
+        # Validates if the withdrawal amount is valid
+        pass
+    
+    def perform_withdrawal(self):
+        # Performs the withdrawal transaction
+        pass
+
+
+class Deposit:
+    def _init_(self, amount):
+        self.amount = amount
+    
+    def validate_deposit(self):
+        # Validates if the deposit amount is valid
+        pass
+    
+    def perform_deposit(self):
+        # Performs the deposit transaction
+        pass
+
+
+class Transfer:
+    def _init_(self, recipient, amount):
+        self.recipient = recipient
+        self.amount = amount
+    
+    def validate_transfer(self):
+        # Validates if the transfer amount and recipient are valid
+        pass
+    
+    def perform_transfer(self):
+        # Performs the transfer transaction
+        pass
