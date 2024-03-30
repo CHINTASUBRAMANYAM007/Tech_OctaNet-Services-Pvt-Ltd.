@@ -1,0 +1,113 @@
+class User:
+    def _init_(self, user_id, pin):
+        self.user_id = user_id
+        self.pin = pin
+    
+    def authenticate_user(self):
+        # Authenticates the user based on user ID and pin
+        # For simplicity, let's just print a message indicating successful authentication
+        print("User authenticated successfully.")
+
+
+class ATM:
+    def _init_(self, user, balance):
+        self.user = user
+        self.balance = balance
+    
+    def display_menu(self):
+        # Displays the menu options to the user
+        print("ATM Menu:")
+        print("1. Withdraw")
+        print("2. Deposit")
+        print("3. Transfer")
+    
+    def perform_transaction(self):
+        # Performs the selected transaction based on user input
+        choice = input("Enter your choice (1 for Withdraw, 2 for Deposit, 3 for Transfer): ")
+        if choice == '1':
+            withdrawal_amount = float(input("Enter withdrawal amount: "))
+            withdraw = Withdraw(withdrawal_amount)
+            withdraw.perform_withdrawal()
+        elif choice == '2':
+            deposit_amount = float(input("Enter deposit amount: "))
+            deposit = Deposit(deposit_amount)
+            deposit.perform_deposit()
+        elif choice == '3':
+            recipient = input("Enter recipient's user ID: ")
+            transfer_amount = float(input("Enter transfer amount: "))
+            transfer = Transfer(recipient, transfer_amount)
+            transfer.perform_transfer()
+        else:
+            print("Invalid choice.")
+
+
+class TransactionHistory:
+    def _init_(self):
+        self.history_list = []
+    
+    def add_transaction(self, transaction):
+        # Adds a transaction to the history list
+        self.history_list.append(transaction)
+    
+    def get_transaction_history(self):
+        # Retrieves the transaction history
+        return self.history_list
+
+
+class Withdraw:
+    def _init_(self, amount):
+        self.amount = amount
+    
+    def validate_withdrawal(self):
+        # Validates if the withdrawal amount is valid
+        # For simplicity, let's assume all withdrawals are valid
+        return True
+    
+    def perform_withdrawal(self):
+        # Performs the withdrawal transaction
+        if self.validate_withdrawal():
+            print(f"Withdrawal of ${self.amount} successful.")
+        else:
+            print("Withdrawal failed.")
+
+
+class Deposit:
+    def _init_(self, amount):
+        self.amount = amount
+    
+    def validate_deposit(self):
+        # Validates if the deposit amount is valid
+        # For simplicity, let's assume all deposits are valid
+        return True
+    
+    def perform_deposit(self):
+        # Performs the deposit transaction
+        if self.validate_deposit():
+            print(f"Deposit of ${self.amount} successful.")
+        else:
+            print("Deposit failed.")
+
+
+class Transfer:
+    def _init_(self, recipient, amount):
+        self.recipient = recipient
+        self.amount = amount
+    
+    def validate_transfer(self):
+        # Validates if the transfer amount and recipient are valid
+        # For simplicity, let's assume all transfers are valid
+        return True
+    
+    def perform_transfer(self):
+        # Performs the transfer transaction
+        if self.validate_transfer():
+            print(f"Transfer of ${self.amount} to {self.recipient} successful.")
+        else:
+            print("Transfer failed.")
+
+
+# Example usage:
+user1 = User("12345", "6789")
+atm = ATM(user1, 1000)
+atm.display_menu()
+atm.perform_transaction()
